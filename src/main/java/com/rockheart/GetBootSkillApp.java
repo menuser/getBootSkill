@@ -1,9 +1,7 @@
 package com.rockheart;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.SpringApplication;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 //@ImportResource(locations = {"classpath:/config/spring.xml"})
 @SpringBootApplication
