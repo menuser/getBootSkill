@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-@PropertySource(value={"classpath:config/emp.yml"})
+@PropertySource(value={"classpath:/config/emp.yml"})
 @ConfigurationProperties(prefix = "emp")
 @Validated
 public class Emp {
@@ -32,7 +32,7 @@ public class Emp {
     private Forte forte;
 
 
-    public class Forte {
+    private class Forte {
         private String name;
         private Integer time;
 
