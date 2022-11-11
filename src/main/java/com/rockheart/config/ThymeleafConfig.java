@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 import java.nio.charset.Charset;
 
-@Configurable
-@Component
+//@Configurable
+//@Component
 public class ThymeleafConfig {
     private static final Charset DEFAULT_ENCODING = Charset.defaultCharset();
     public static final String DEFAULT_PREFIX = "classpath:/template/";
