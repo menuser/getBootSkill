@@ -1,0 +1,4 @@
+server:
+  port: 8080
+spring:
+  profiles: dev #指定属于哪个环境, dev 环境时使用
