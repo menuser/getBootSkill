@@ -1,12 +1,17 @@
 package com.rockheart.demo.test;
 
 import com.rockheart.demo.common.SIze;
-import com.sun.glass.ui.Size;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.cloud.openfeign.SpringQueryMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
 
+@RestController
+@FeignClient
 public class TestBoot01 {
 
     public static void main(String[] args) {
@@ -23,7 +28,17 @@ public class TestBoot01 {
         SIze s = SIze.MEDIUM;
         System.out.println(s);
 
+        LocalDate currDate = LocalDate.now();
+        System.out.println(currDate.toString());
 
+    }
+
+
+    @GetMapping("getUserInfo")
+    @ResponseBody
+    public String getUserInfo(@SpringQueryMap String userId){
+        System.out.println(userId);
+        return "user1";
     }
 
 }
