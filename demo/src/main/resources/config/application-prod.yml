@@ -1,0 +1,4 @@
+server:
+  port: 8081
+spring:
+  profiles: prod #指定属于哪个环境, prod 环境时使用

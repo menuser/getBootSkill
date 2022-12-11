@@ -1,0 +1,77 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>study</title>
+</head>
+<body>
+<!--    <table border="1px">-->
+<!--        <tr>-->
+<!--            <th>姓名</th>-->
+<!--        </tr>-->
+<!--        &lt;!&ndash;方式1： &ndash;&gt;-->
+<!--        <tr th:each="user : ${userList}">-->
+<!--            &lt;!&ndash;每次迭代都会生成一个当前标签&ndash;&gt;-->
+<!--            <td th:text="${user}">rockHeart</td>-->
+<!--        </tr>-->
+<!--    </table>-->
+
+    <hr/>
+    <ul>
+        <!--方式2：-->
+        <!--作用在同一个标签上， 每次迭代生成一个当前标签-->
+        <li th:each="user : ${userList}" th:text="${user}"></li>
+    </ul>
+    <table border="1px">
+        <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>总数</th>
+            <th>性别</th>
+            <th>偶数/奇数</th>
+            <th>第一个元素</th>
+            <th>最后一个元素</th>
+        </tr>
+        <tr th:each="user, iterStat : ${userList}">
+            <td th:text="${iterStat.count}">0</td>
+            <td th:text="${user.username}">rockHeart</td>
+            <td th:text="${user.gender == 1 ? '女' : '男'}">未知</td>
+            <td th:text="${iterStat.size}">0</td>
+            <td th:text="${iterStat.even}? '偶数' : '奇数'"></td>
+            <td th:text="${iterStat.first}"></td>
+            <td th:text="${iterStat.last}"></td>
+        </tr>
+    </table>
+
+    <hr/>
+    <h3 th:if="${#lists.isEmpty(userList)}">th:if判断,如果此文字显示说明没有值</h3>
+    <h3 th:if="not ${#lists.isEmpty(userList)}">th:if判断,如果此文字显示说明有值</h3>
+    <h3 th:unless="${#lists.isEmpty(userList)}">th:unless判断,如果此文字显示说明有值</h3>
+
+    <div th:switch="${sex}">
+        <!--1女, 2男-->
+        <p th:case="1">女</p>
+        <!--判断sex的值和下面取出man的值是否相等,相等则显示-->
+        <p th:case="${man}">男</p>
+        <!--如果值都不在上述case里，则th:case="*"语句生效。-->
+        <p th:case="*">未知</p>
+    </div>
+
+    <hr/>
+    <div th:text="${desc}"> </div>
+    <div th:utext="${desc}"> </div>
+
+    <input type="checkbox" /> [[${desc}]]
+    <p>Hello, [[${desc}]] 。。。</p>
+
+    <div th:object="${session.user}">
+        <p>
+            姓名:<span th:text="*{username}">xxxx</span>
+        </p>
+        <p>
+            性别:<span th:text="*{gender == 1 ? '女' : '男'}">xxxx</span>
+        </p>
+    </div>
+
+</body>
+
+</html>
