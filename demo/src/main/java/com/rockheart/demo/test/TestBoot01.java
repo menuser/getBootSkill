@@ -19,10 +19,10 @@ import java.util.stream.Collectors;
 public class TestBoot01 {
 
     public static void main(String[] args) {
-        System.out.println(Character.isValidCodePoint('Y'));
-        System.out.println(Character.isJavaIdentifierStart('A'));
-        System.out.println((byte)300);
-        System.out.println((long)300);
+//        System.out.println(Character.isValidCodePoint('Y'));
+//        System.out.println(Character.isJavaIdentifierStart('A'));
+//        System.out.println((byte)300);
+//        System.out.println((long)300);
 
 //        String testStr = "a=123&b=1234&c=12345";
 //        Arrays.asList(testStr.split("&")).stream()
@@ -43,15 +43,18 @@ public class TestBoot01 {
 
 
         //java流式计算练习
-        List<String> strList = userList.stream().flatMap(user -> Arrays.stream(user.toString().split(" "))).collect(Collectors.toList());
-        //遍历集合
-        strList.stream().forEach((s) -> {
-            System.out.println(s);
-        });
+        List<String> strList = userList.stream()
+                .flatMap(user -> Arrays.stream(user.toString().split(" ")))
+                .collect(Collectors.toList());
+
+        strList.forEach(System.out::println);
 
         //Java流式计算数据过滤
-        List<User> newUserList = userList.stream().filter(user -> user.getGender()<= 1).collect(Collectors.toList());
-        newUserList.stream().forEach(user -> System.out.println(user));
+        List<User> newUserList = userList.stream()
+                .filter(user -> user.getGender()<= 1)
+                .collect(Collectors.toList());
+
+        newUserList.forEach(System.out::println);
 
 
 
