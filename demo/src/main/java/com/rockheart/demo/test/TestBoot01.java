@@ -19,10 +19,10 @@ import java.util.stream.Collectors;
 public class TestBoot01 {
 
     public static void main(String[] args) {
-        System.out.println(Character.isValidCodePoint('Y'));
-        System.out.println(Character.isJavaIdentifierStart('A'));
-        System.out.println((byte)300);
-        System.out.println((long)300);
+//        System.out.println(Character.isValidCodePoint('Y'));
+//        System.out.println(Character.isJavaIdentifierStart('A'));
+//        System.out.println((byte)300);
+//        System.out.println((long)300);
 
 //        String testStr = "a=123&b=1234&c=12345";
 //        Arrays.asList(testStr.split("&")).stream()
@@ -47,18 +47,14 @@ public class TestBoot01 {
                 .flatMap(user -> Arrays.stream(user.toString().split(" ")))
                 .collect(Collectors.toList());
 
-        //一般方法遍历集合
-        strList.stream().forEach((s) -> {
-            System.out.println(s);
-        });
+        strList.forEach(System.out::println);
 
         //Java流式计算数据过滤
         List<User> newUserList = userList.stream()
                 .filter(user -> user.getGender()<= 1)
                 .collect(Collectors.toList());
 
-        //java流式计算遍历集合
-        newUserList.stream().forEach(user -> System.out.println(user));
+        newUserList.forEach(System.out::println);
 
 
 
