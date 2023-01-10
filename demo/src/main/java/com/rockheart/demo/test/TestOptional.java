@@ -34,10 +34,18 @@ public class TestOptional {
 
     }
 
+    /**
+     * print student's name
+     * @param student
+     */
     public static void printStudent(Student student){
         System.out.println("student.getName() = " + student.getName());
     }
 
+    /**
+     * return a new student object
+     * @return
+     */
     public static Student createStudent(){
         return new Student();
     }
