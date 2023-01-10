@@ -43,15 +43,28 @@ public class TestBoot01 {
 
 
         //java流式计算练习
-        List<String> strList = userList.stream().flatMap(user -> Arrays.stream(user.toString().split(" "))).collect(Collectors.toList());
-        //遍历集合
+        List<String> strList = userList.stream()
+                .flatMap(user -> Arrays.stream(user.toString().split(" ")))
+                .collect(Collectors.toList());
+
+        //一般方法遍历集合
         strList.stream().forEach((s) -> {
             System.out.println(s);
         });
 
         //Java流式计算数据过滤
-        List<User> newUserList = userList.stream().filter(user -> user.getGender()<= 1).collect(Collectors.toList());
+        List<User> newUserList = userList.stream()
+                .filter(user -> user.getGender()<= 1)
+                .collect(Collectors.toList());
+
+        //java流式计算遍历集合
         newUserList.stream().forEach(user -> System.out.println(user));
+
+
+
+
+
+
 
 
 
