@@ -17,6 +17,7 @@ public class TestOptional {
 
         //initial optional object
         Student s = new Student(21,100,"shixin");
+//        Student s = null;
         Optional<Student> optional = Optional.ofNullable(s);
 
         //scenario 1 - if object is exists, do what?
@@ -47,6 +48,7 @@ public class TestOptional {
      * @return
      */
     public static Student createStudent(){
+        System.out.println("createStudent : create a new object");
         return new Student();
     }
 
