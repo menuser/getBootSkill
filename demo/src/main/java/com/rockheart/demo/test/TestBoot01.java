@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,6 +57,8 @@ public class TestBoot01 {
                 .collect(Collectors.toList());
 
         newUserList.forEach(System.out::println);
+
+
 
 
 
